@@ -1,0 +1,435 @@
+/*$coinBackground:#2b5270;
+$coinBorder:#81C3D7;
+$shopBorder:#81C3D7;
+$imgBorder:#2F6690;
+$shopBackground:#3A7CA5;
+$characterBackground:#81C3D7;
+$upgradeBackground:#2F6690;
+$upgradeBorder:#16425B;
+$scrollColor:#16425B;
+
+//Right Wrap
+$skillsButtonColor:#81C3D7;
+$skillsButtonBackgroundColor:#16425B;
+$settingsButtonColor:#81C3D7;
+$settingsButtonBackgroundColor:#16425B;*/
+/*$coinBackground:#E56B6F;
+$coinBorder:#6D597A;
+$shopBorder:#E56B6F;
+$imgBorder:#EAAC8B;
+$shopBackground:#6D597A;
+$characterBackground:#E56B6F;
+$upgradeBackground:#6D597A;
+$upgradeBorder:#EAAC8B;
+$scrollColor:#EAAC8B;
+
+//Right Wrap
+$skillsButtonColor:#EAAC8B;
+$skillsButtonBackgroundColor:#6D597A;
+$settingsButtonColor:#EAAC8B;
+$settingsButtonBackgroundColor:#6D597A;*/
+body .all {
+  background-image: url("/img/background1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+body img {
+  -webkit-user-drag: none;
+}
+body .leftWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 1vh 0.5vw 1vh 1vw;
+  width: 48vw;
+  height: 98vh;
+  border-radius: 10px;
+}
+body .leftWrap .coins {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #432818;
+  color: white;
+  height: 5vh;
+  border-radius: 5px;
+  border: solid 5px #BB9457;
+  font-size: 1.2rem;
+}
+body .leftWrap .coins i {
+  color: goldenrod;
+}
+body .leftWrap .shopMenu .shopNav {
+  display: flex;
+  padding-inline: 3px;
+}
+body .leftWrap .shopMenu .shopNav .shop {
+  background-color: #99582A;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  margin: 0px 5px 0px 5px;
+  height: 4.3vh;
+  width: 5.5vw;
+  border: 3px #FFE6A7;
+  border-style: solid solid none solid;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  cursor: pointer;
+}
+body .leftWrap .shopMenu .shopNav .shop img {
+  height: 3.4vh;
+}
+body .leftWrap .shopMenu .shopNav .shop i {
+  color: black;
+  font-size: 2rem;
+}
+body .leftWrap .shopMenu .shopNav .shop:active img {
+  height: 2.8vh;
+}
+body .leftWrap .shopMenu .shopNav .shop:active i {
+  color: black;
+  font-size: 1.7rem;
+}
+body .leftWrap .shopMenu .shopMain {
+  background-color: #99582A;
+  height: 83vh;
+  border: solid 5px #FFE6A7;
+  border-radius: 10px;
+  overflow-y: scroll;
+  background-repeat: repeat-y;
+  background-position: center;
+}
+body .leftWrap .shopMenu .shopMain .character {
+  display: flex;
+  justify-content: space-between;
+  height: 14vh;
+  background-color: #BB9457;
+  border-radius: 10px;
+  margin-block: 5px;
+  margin-inline: 5px;
+  padding: 5px;
+  gap: 1%;
+}
+body .leftWrap .shopMenu .shopMain .character .img {
+  width: 19%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .leftWrap .shopMenu .shopMain .character .img img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+  border: solid 2px #FFE6A7;
+}
+body .leftWrap .shopMenu .shopMain .character .stats {
+  width: 63%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+body .leftWrap .shopMenu .shopMain .character .stats .name {
+  font-size: 20px;
+  font-weight: 500;
+}
+body .leftWrap .shopMenu .shopMain .character .stats .level {
+  font-size: 15px;
+  font-weight: 400;
+}
+body .leftWrap .shopMenu .shopMain .character .stats .dmg {
+  font-size: 15px;
+  font-weight: 400;
+}
+body .leftWrap .shopMenu .shopMain .character .upgrade {
+  width: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: solid 0.3rem #FFE6A7;
+  border-radius: 15px;
+  background-color: #99582A;
+  margin-block: 2.5vh;
+  position: relative;
+  cursor: pointer;
+}
+body .leftWrap .shopMenu .shopMain .character .upgrade i {
+  stroke: black;
+  stroke-width: 10px;
+  color: goldenrod;
+}
+body .leftWrap .shopMenu .shopMain .character .upgrade .upgradeCost {
+  font-size: 1.5rem;
+}
+body .leftWrap .shopMenu .shopMain .character .upgrade .dmgAdd {
+  margin-top: 4.7vh;
+  position: absolute;
+  font-size: 0.9rem;
+}
+body .leftWrap .shopMenu .shopMain .character .upgrade:active {
+  margin-block: 3vh;
+}
+body .leftWrap .shopMenu ::-webkit-scrollbar-track {
+  border: 5px solid white;
+  border-color: transparent;
+}
+body .leftWrap .shopMenu ::-webkit-scrollbar {
+  width: 15px;
+}
+body .leftWrap .shopMenu ::-webkit-scrollbar-thumb {
+  background-color: #6F1D1B;
+  border-radius: 10px;
+}
+body .rightWrap {
+  margin: 1vh 1vw 1vh 0.5vw;
+  width: 48vw;
+  height: 98vh;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+body .rightWrap .skills {
+  display: flex;
+  flex-direction: column;
+  color: #FFE6A7;
+  cursor: pointer;
+}
+body .rightWrap .skills i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.2vh;
+  min-width: 5.2vh;
+  background-color: #99582A;
+  padding: 0.15rem;
+  font-size: 3rem;
+  border: solid 5px;
+  border-radius: 10px;
+  margin-block: 1vh;
+}
+body .rightWrap .skills #skill:active {
+  font-size: 2.7rem;
+}
+body .rightWrap .clicker {
+  text-align: center;
+}
+body .rightWrap .clicker #clicker {
+  margin-top: 40vh;
+  cursor: pointer;
+}
+body .rightWrap .clicker img {
+  width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+}
+body .rightWrap .clicker img:active {
+  width: 99%;
+  height: auto;
+}
+body .rightWrap .navSettings {
+  display: flex;
+  flex-direction: column;
+  color: #FFE6A7;
+}
+body .rightWrap .navSettings i {
+  background-color: #99582A;
+  min-width: 5vh;
+  min-height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 2.2rem;
+  border: solid 3px;
+  border-radius: 50%;
+  margin-block: 0.5vh;
+  cursor: pointer;
+}
+body .rightWrap .navSettings i:active {
+  font-size: 2rem;
+}
+
+@media (min-width: 0px) and (max-width: 600px) {
+  .all {
+    flex-direction: column-reverse;
+  }
+  .all .leftWrap {
+    width: 100%;
+    height: 60vh;
+    margin: 0;
+  }
+  .all .leftWrap .shopMenu .shopNav .shop {
+    width: 15vw;
+  }
+  .all .leftWrap .shopMenu .shopMain {
+    height: 47vh;
+  }
+  .all .leftWrap .shopMenu .shopMain .character {
+    height: 9vh;
+    margin-inline: 0.5vw;
+    margin-block: 0.5vh;
+    gap: 1%;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .img {
+    width: 19%;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats {
+    width: 48%;
+    gap: 10px;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats .name {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats .level {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats .dmg {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade {
+    width: 31%;
+    margin-block: 0;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade .upgradeCost {
+    font-size: 1.2rem;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade .dmgAdd {
+    margin-top: 4vh;
+    font-size: 0.65rem;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade:active {
+    margin-block: 0.5vh;
+  }
+  .all .rightWrap {
+    width: 98%;
+    height: 40vh;
+    margin-block: 0;
+    margin-inline: 1%;
+  }
+  .all .rightWrap .skills i {
+    min-height: 4.5vh;
+    min-width: 4.5vh;
+    padding: 0.15rem;
+    font-size: 2rem;
+    border: solid 5px;
+    border-radius: 10px;
+    margin-block: 0.5vh;
+  }
+  .all .rightWrap .skills #skill:active {
+    font-size: 1.9rem;
+  }
+  .all .rightWrap .clicker #clicker {
+    margin-top: 15vh;
+  }
+  .all .rightWrap .navSettings i {
+    min-height: 4.5vh;
+    min-width: 4.5vh;
+    padding: 0.15rem;
+    font-size: 2.2rem;
+    border: solid 3px;
+    border-radius: 50%;
+    margin-block: 0.5vh;
+  }
+  .all .rightWrap .navSettings i:active {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 600px) and (max-width: 1100px) {
+  .all .leftWrap {
+    width: 50%;
+    margin: 0;
+  }
+  .all .leftWrap .shopMenu .shopNav .shop {
+    width: 7vw;
+  }
+  .all .leftWrap .shopMenu .shopMain .character {
+    height: 10vh;
+    margin-inline: 1vw;
+    margin-block: 1vh;
+    gap: 1%;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .img {
+    width: 19%;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats {
+    width: 50%;
+    gap: 10px;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats .name {
+    font-size: 20px;
+    font-weight: 500;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats .level {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .stats .dmg {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade {
+    width: 29%;
+    margin-block: 0;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade .upgradeCost {
+    font-size: 1rem;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade .dmgAdd {
+    margin-top: 4vh;
+    font-size: 0.65rem;
+  }
+  .all .leftWrap .shopMenu .shopMain .character .upgrade:active {
+    margin-block: 0.5vh;
+  }
+  .all .rightWrap {
+    width: 48%;
+    margin-block: 0;
+    margin-inline: 1%;
+  }
+  .all .rightWrap .skills i {
+    min-height: 5vh;
+    min-width: 5vh;
+    padding: 0.15rem;
+    font-size: 2.2rem;
+    border: solid 5px;
+    border-radius: 10px;
+    margin-block: 0.5vh;
+  }
+  .all .rightWrap .skills #skill:active {
+    font-size: 2rem;
+  }
+  .all .rightWrap .clicker {
+    align-self: center;
+  }
+  .all .rightWrap .clicker img {
+    width: 100%;
+    height: auto;
+  }
+  .all .rightWrap .clicker img:active {
+    width: 99%;
+    height: auto;
+  }
+  .all .rightWrap .navSettings i {
+    min-height: 5vh;
+    min-width: 5vh;
+    padding: 0.15rem;
+    font-size: 2rem;
+    border: solid 3px;
+    border-radius: 50%;
+    margin-block: 0.5vh;
+  }
+  .all .rightWrap .navSettings i:active {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=style.css.map */
