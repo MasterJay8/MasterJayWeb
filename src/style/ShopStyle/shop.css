@@ -1,0 +1,75 @@
+/*$coinBackground:#2b5270;
+$coinBorder:#81C3D7;
+$shopBorder:#81C3D7;
+$imgBorder:#2F6690;
+$shopBackground:#3A7CA5;
+$characterBackground:#81C3D7;
+$upgradeBackground:#2F6690;
+$upgradeBorder:#16425B;
+$scrollColor:#16425B;
+
+//Right Wrap
+$skillsButtonColor:#81C3D7;
+$skillsButtonBackgroundColor:#16425B;
+$settingsButtonColor:#81C3D7;
+$settingsButtonBackgroundColor:#16425B;*/
+/*$coinBackground:#E56B6F;
+$coinBorder:#6D597A;
+$shopBorder:#E56B6F;
+$imgBorder:#EAAC8B;
+$shopBackground:#6D597A;
+$characterBackground:#E56B6F;
+$upgradeBackground:#6D597A;
+$upgradeBorder:#EAAC8B;
+$scrollColor:#EAAC8B;
+
+//Right Wrap
+$skillsButtonColor:#EAAC8B;
+$skillsButtonBackgroundColor:#6D597A;
+$settingsButtonColor:#EAAC8B;
+$settingsButtonBackgroundColor:#6D597A;*/
+.settings {
+  width: 70vw;
+  height: 70vh;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #FFE6A7;
+}
+.settings .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1vh;
+  padding-block: 1vh;
+  padding-inline: 1vw;
+  background-color: #BB9457;
+  cursor: pointer;
+}
+.settings .item img {
+  height: 10vh;
+}
+.settings .item .buy {
+  background-color: #99582A;
+  padding: 1vh;
+}
+.settings button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 1vh;
+  padding-inline: 1vw;
+  background-color: #BB9457;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=shop.css.map */
