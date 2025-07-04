@@ -103,6 +103,7 @@ function GetElapsedTime(since) {
   return `${hours}h`;
 }
 
+//Money BuyOffer -> SellOffer
 function MoneyBoToSo(city, item) {
   let profit;
   //console.log(cityItems.value["Black Market"]);
