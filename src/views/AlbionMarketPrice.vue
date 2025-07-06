@@ -8,7 +8,12 @@ let ITEMS = [];
 //let T4T8ITEMS = ["BAG"];
 let T4T8ITEMS = ["BAG",
   "BAG_INSIGHT",
-  "2H_BOW",];
+  "2H_ENIGMATICSTAFF",
+  "2H_MACE",
+  "2H_GLAIVE",
+  "2H_GLAIVE",
+  "2H_GLAIVE",
+  ];
 /*let T4T8ITEMS = [
   "BAG",
   "BAG_INSIGHT",
@@ -176,7 +181,7 @@ let T4T8ITEMS = ["BAG",
 let itemTierCounter = 0;
 let tempMatch;
 let tempArray = [];
-itemsRaw
+/*itemsRaw
   .trim()
   .split("\n")
   .forEach((line) => {
@@ -205,7 +210,7 @@ itemsRaw
     } else {
       itemTierCounter = 0;
     }
-  });
+  })*/
 
 for (let item of T4T8ITEMS) {
   let itemName = "";
