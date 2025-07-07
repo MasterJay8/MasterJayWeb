@@ -3,11 +3,9 @@ import { ref, onMounted, watch } from "vue";
 import itemsRaw from "../../src/assets/items.txt?raw";
 import itemsJson from "../../src/assets/items.json";
 
-// Constants
 const QUALITY_LEVELS = [1, 2, 3, 4];
 const TIERS = [4, 5, 6, 7, 8];
 
-//let T4T8ITEMS = ref(itemsJson["Bag"]);
 const CITY_CODES = "3003,5003,2004,3005,4002,1002,3008,7";
 const cityList = [
   "Black Market",
@@ -54,14 +52,12 @@ const categoryList = [
   "Potion",
 ];
 
-// Reactive state
 const cityItems = ref({});
 const selectedCity = ref("Fort Sterling");
 const selectedCategory = ref("Bag");
 const selectedBoSoCity = ref("Black Market");
 const selectedIbSoCity = ref("Black Market");
 
-// Parse item names
 const nameMap = Object.fromEntries(
   itemsRaw
     .trim()
@@ -85,12 +81,10 @@ function GetElapsedTime(since) {
   return hours > 100000 ? "X" : `${hours.toString().padStart(2, "0")}h`;
 }
 
-// Format number
 function NWS(x) {
   return x?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") ?? "";
 }
 
-// Calculate potential profit
 function MoneyBoToSo(item, SoCity) {
   const compareList = cityItems.value[SoCity] || [];
 
@@ -164,7 +158,7 @@ const loadPrices = async () => {
       const quality = `${id.slice(1, 2)}.${base[1]}`;
 
       cityItems.value[city].push([
-        nameMap[id] ?? base[0], // Name fallback
+        nameMap[id] ?? base[0],
         quality,
         obj.sell_price_min,
         GetElapsedTime(obj.sell_price_min_date),
@@ -184,19 +178,18 @@ onMounted(async () => {
   await loadPrices();
 });
 
-watch(selectedCategory, async (newCategory) => {
+watch(selectedCategory, async () => {
   await loadPrices();
 });
 
-// Watch for profit update on source city change
 watch(selectedBoSoCity, UpdateBoSoProfit);
 watch(selectedIbSoCity, UpdateIbSoProfit);
 
 function getBackgroundColor(y, val) {
   if (y == 6 || y == 7) {
-    if (val == "X") return "transparent"; // light yellowish
-    if (val < 0) return "transparent"; // light yellowish
-    if (val >= 1000000) return "rgba(50, 205, 128, 0.8)"; // bright green
+    if (val == "X") return "transparent";
+    if (val < 0) return "transparent";
+    if (val >= 1000000) return "rgba(50, 205, 128, 0.8)";
 
     const percent = val / 1000000;
     const r = Math.round(255 + percent * (50 - 255));
@@ -204,8 +197,8 @@ function getBackgroundColor(y, val) {
     const b = Math.round(102 + percent * (128 - 102));
     return `rgba(${r},${g},${b},0.8)`;
   } else if (y == 3 || y == 5) {
-    val = val.slice(0, 2); // assuming val is string here?
-    val = parseFloat(val); // ensure it's a number
+    val = val.slice(0, 2);
+    val = parseFloat(val);
     if (val <= 0) return "rgba(50, 205, 128, 0.8)";
     if (val >= 24) return "rgba(255, 255, 102, 0.8)";
 
@@ -262,10 +255,6 @@ function getBackgroundColor(y, val) {
               </select>
             </td>
           </tr>
-          <!--<tbody v-for="(items, city) in cityItems" :key="city">
-        <tr v-for="(item, i) in items" :key="i">
-          <td>{{ city }}</td>-->
-
           <tr v-for="(item, i) in cityItems[selectedCity]" :key="i">
             <td>{{ selectedCity }}</td>
             <td
@@ -283,8 +272,7 @@ function getBackgroundColor(y, val) {
 </template>
 
 <style scoped>
-.wrap{
-
+.wrap {
   background-color: #080404;
 }
 .table-container {
