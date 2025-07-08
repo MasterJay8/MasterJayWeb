@@ -65,94 +65,6 @@ const selectedCategory = useLocalStorageRef("selectedCategory");
 const selectedBoSoCity = useLocalStorageRef("selectedBoSoCity");
 const selectedIbSoCity = useLocalStorageRef("selectedIbSoCity");
 
-const LOCAL_CACHE_KEY = "cachedCityItems";
-
-function saveItemsToCache(items) {
-  const existingRaw = localStorage.getItem(LOCAL_CACHE_KEY);
-  let existing = {};
-
-  if (existingRaw) {
-    try {
-      existing = JSON.parse(existingRaw);
-    } catch (e) {
-      console.warn("Invalid JSON in cache, starting fresh.");
-    }
-  }
-
-  for (const city in items) {
-    const newItems = items[city].filter(
-      (item) =>
-        (item[2] !== 0 && item[2] !== "X") || (item[4] !== 0 && item[4] !== "X")
-    );
-
-    if (!existing[city]) {
-      existing[city] = newItems;
-      continue;
-    }
-
-    for (const newItem of newItems) {
-      const index = existing[city].findIndex(
-        (i) => i[0] === newItem[0] && i[1] === newItem[1]
-      );
-
-      if (index !== -1) {
-        existing[city][index] = newItem;
-      } else {
-        existing[city].push(newItem);
-      }
-    }
-  }
-
-  localStorage.setItem(LOCAL_CACHE_KEY, JSON.stringify(existing));
-}
-
-function loadItemsFromCache() {
-  try {
-    const cached = localStorage.getItem(LOCAL_CACHE_KEY);
-    if (cached) {
-      return JSON.parse(cached);
-    }
-  } catch (err) {
-    console.warn("Error parsing cached data:", err);
-  }
-  return null;
-}
-
-function fillMissingPricesFromCache() {
-  const cachedRaw = localStorage.getItem(LOCAL_CACHE_KEY);
-  if (!cachedRaw) return;
-
-  let fallbackAll;
-  try {
-    fallbackAll = JSON.parse(cachedRaw);
-  } catch (err) {
-    console.warn("Invalid cached JSON", err);
-    return;
-  }
-
-  for (const city in cityItems.value) {
-    const cityData = cityItems.value[city];
-    const fallbackData = fallbackAll[city] || [];
-
-    for (let i = 0; i < cityData.length; i++) {
-      const item = cityData[i];
-      const fallbackItem = fallbackData.find(
-        (f) => f[0] === item[0] && f[1] === item[1]
-      );
-      if (!fallbackItem) continue;
-
-      if (item[2] === 0) {
-        item[2] = fallbackItem[2];
-        item[3] = fallbackItem[3];
-      }
-      if (item[4] === 0) {
-        item[4] = fallbackItem[4];
-        item[5] = fallbackItem[5];
-      }
-    }
-  }
-}
-
 const nameMap = (() => {
   return Object.fromEntries(
     itemsRaw
@@ -219,9 +131,8 @@ function UpdateIbSoProfit(SoCity) {
 const loadPrices = async () => {
   try {
     cityItems.value = {};
-
     const T4T8ITEMS = ref(
-      itemsJson[selectedCategory.value] ?? itemsJson["Bag"]
+      itemsJson[selectedCategory.value]
     );
 
     const allItemIds = T4T8ITEMS.value.flatMap((item) =>
@@ -257,22 +168,13 @@ const loadPrices = async () => {
       ]);
     }
 
-    //test
-    fillMissingPricesFromCache();
-
-    saveItemsToCache(cityItems.value);
-
     localStorage.setItem("selectedCategory", selectedCategory.value);
-  } catch (error) {
-    console.error("Error fetching data, attempting to load cache:", error);
-    const cached = loadItemsFromCache();
-    if (cached) {
-      cityItems.value = cached;
-    }
-  }
 
-  UpdateBoSoProfit(selectedBoSoCity.value);
-  UpdateIbSoProfit(selectedIbSoCity.value);
+    UpdateBoSoProfit(selectedBoSoCity.value);
+    UpdateIbSoProfit(selectedIbSoCity.value);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 };
 
 onMounted(async () => {
@@ -302,8 +204,7 @@ function getBackgroundColor(y, val) {
   }
 
   if (y === 3 || y === 5) {
-    if (typeof val === "string" && val.includes("m"))
-      return "rgba(50, 205, 128, 0.8)";
+    if (typeof val === "string" && val.includes("m")) return "rgba(50, 205, 128, 0.8)";
     const time = parseFloat(val);
     if (isNaN(time)) return "transparent";
     const percent = Math.min(time / 24, 1);

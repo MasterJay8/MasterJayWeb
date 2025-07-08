@@ -14,53 +14,61 @@
         "MAIN_SWORD_CRYSTAL"
     ],
     "Axe": [
+        "MAIN_AXE",
         "2H_AXE",
-        "2H_AXE_UNDEAD",
-        "2H_AXE_HELL",
-        "2H_AXE_KEEPER",
+        "2H_HALBERD",
+        "2H_HALBERD_MORGANA",
+        "2H_SCYTHE_HELL",
+        "2H_DUALAXE_KEEPER",
         "2H_AXE_AVALON",
-        "2H_AXE_CRYSTAL"
+        "2H_SCYTHE_CRYSTAL"
     ],
     "Mace": [
+        "MAIN_MACE",
         "2H_MACE",
-        "2H_MACE_UNDEAD",
-        "2H_MACE_HELL",
-        "2H_MACE_KEEPER",
-        "2H_MACE_AVALON",
-        "2H_MACE_CRYSTAL"
+        "2H_FLAIL",
+        "MAIN_ROCKMACE_KEEPER",
+        "MAIN_MACE_HELL",
+        "2H_MACE_MORGANA",
+        "2H_DUALMACE_AVALON",
+        "MAIN_MACE_CRYSTAL"
     ],
     "Hammer": [
+        "MAIN_HAMMER",
+        "2H_POLEHAMMER",
         "2H_HAMMER",
         "2H_HAMMER_UNDEAD",
-        "2H_HAMMER_HELL",
-        "2H_HAMMER_KEEPER",
+        "2H_DUALHAMMER_HELL",
+        "2H_RAM_KEEPER",
         "2H_HAMMER_AVALON",
         "2H_HAMMER_CRYSTAL"
     ],
     "Glove": [
-        "2H_GLOVE",
-        "2H_GLOVE_UNDEAD",
-        "2H_GLOVE_HELL",
-        "2H_GLOVE_KEEPER",
-        "2H_GLOVE_AVALON",
-        "2H_GLOVE_CRYSTAL"
+        "2H_KNUCKLES_SET1",
+        "2H_KNUCKLES_SET2",
+        "2H_KNUCKLES_SET3",
+        "2H_KNUCKLES_KEEPER",
+        "2H_KNUCKLES_HELL",
+        "2H_KNUCKLES_MORGANA",
+        "2H_KNUCKLES_AVALON",
+        "2H_KNUCKLES_CRYSTAL"
     ],
     "Crossbow": [
         "2H_CROSSBOW",
-        "2H_CROSSBOW_UNDEAD",
-        "2H_CROSSBOW_HELL",
-        "2H_CROSSBOW_KEEPER",
-        "2H_CROSSBOW_AVALON",
-        "2H_CROSSBOW_CRYSTAL"
+        "2H_CROSSBOWLARGE",
+        "MAIN_1HCROSSBOW",
+        "2H_REPEATINGCROSSBOW_UNDEAD",
+        "2H_DUALCROSSBOW_HELL",
+        "2H_CROSSBOWLARGE_MORGANA",
+        "2H_CROSSBOW_CANNON_AVALON",
+        "2H_DUALCROSSBOW_CRYSTAL"
     ],
     "Shield": [
-        "MAIN_SHIELD",
-        "2H_SHIELD",
-        "2H_SHIELD_UNDEAD",
-        "2H_SHIELD_HELL",
-        "2H_SHIELD_KEEPER",
-        "2H_SHIELD_AVALON",
-        "2H_SHIELD_CRYSTAL"
+        "OFF_SHIELD",
+        "OFF_TOWERSHIELD_UNDEAD",
+        "OFF_SHIELD_HELL",
+        "OFF_SPIKEDSHIELD_MORGANA",
+        "OFF_SHIELD_AVALON"
     ],
     "Bow": [
         "2H_BOW",
@@ -92,155 +100,204 @@
     ],
     "Quarterstaff": [
         "2H_QUARTERSTAFF",
-        "2H_QUARTERSTAFF_UNDEAD",
-        "2H_QUARTERSTAFF_HELL",
-        "2H_QUARTERSTAFF_KEEPER",
+        "2H_IRONCLADEDSTAFF",
+        "2H_DOUBLEBLADEDSTAFF",
+        "2H_COMBATSTAFF_MORGANA",
+        "2H_TWINSCYTHE_HELL",
+        "2H_ROCKSTAFF_KEEPER",
         "2H_QUARTERSTAFF_AVALON",
-        "2H_QUARTERSTAFF_CRYSTAL"
+        "2H_DOUBLEBLADEDSTAFF_CRYSTAL"
     ],
-    "Shapeshifter":[
-        "2H_SHAPESHIFTER",
-        "2H_SHAPESHIFTER_UNDEAD",
+    "Shapeshifter": [
+        "2H_SHAPESHIFTER_SET1",
+        "2H_SHAPESHIFTER_SET2",
+        "2H_SHAPESHIFTER_SET3",
+        "2H_SHAPESHIFTER_MORGANA",
         "2H_SHAPESHIFTER_HELL",
         "2H_SHAPESHIFTER_KEEPER",
         "2H_SHAPESHIFTER_AVALON",
         "2H_SHAPESHIFTER_CRYSTAL"
     ],
-    "Nature Staff":[
+    "Nature Staff": [
+        "MAIN_NATURESTAFF",
         "2H_NATURESTAFF",
-        "2H_NATURESTAFF_UNDEAD",
+        "2H_WILDSTAFF",
+        "MAIN_NATURESTAFF_KEEPER",
         "2H_NATURESTAFF_HELL",
         "2H_NATURESTAFF_KEEPER",
-        "2H_NATURESTAFF_AVALON",
-        "2H_NATURESTAFF_CRYSTAL"
+        "MAIN_NATURESTAFF_AVALON",
+        "MAIN_NATURESTAFF_CRYSTAL"
     ],
-    "Torch":[
-        "2H_TORCH",
-        "2H_TORCH_UNDEAD",
-        "2H_TORCH_HELL",
-        "2H_TORCH_KEEPER",
-        "2H_TORCH_AVALON",
-        "2H_TORCH_CRYSTAL"
+    "Torch": [
+        "OFF_TORCH",
+        "OFF_HORN_KEEPER",
+        "OFF_TALISMAN_AVALON",
+        "OFF_LAMP_UNDEAD",
+        "OFF_JESTERCANE_HELL"
     ],
-    "Pyromancer":[
-        "2H_PYROMANCER",
-        "2H_PYROMANCER_UNDEAD",
-        "2H_PYROMANCER_HELL",
-        "2H_PYROMANCER_KEEPER",
-        "2H_PYROMANCER_AVALON",
-        "2H_PYROMANCER_CRYSTAL"
+    "Pyromancer": [
+        "MAIN_FIRESTAFF",
+        "2H_FIRESTAFF",
+        "2H_INFERNOSTAFF",
+        "MAIN_FIRESTAFF_KEEPER",
+        "2H_INFERNOSTAFF_MORGANA",
+        "2H_FIRESTAFF_HELL",
+        "2H_FIRE_RINGPAIR_AVALON",
+        "MAIN_FIRESTAFF_CRYSTAL"
     ],
-    "Priest":[
-        "2H_PRIEST",
-        "2H_PRIEST_UNDEAD",
-        "2H_PRIEST_HELL",
-        "2H_PRIEST_KEEPER",
-        "2H_PRIEST_AVALON",
-        "2H_PRIEST_CRYSTAL"
+    "Priest": [
+        "MAIN_HOLYSTAFF",
+        "2H_HOLYSTAFF",
+        "2H_DIVINESTAFF",
+        "MAIN_HOLYSTAFF_MORGANA",
+        "2H_HOLYSTAFF_HELL",
+        "2H_HOLYSTAFF_UNDEAD",
+        "MAIN_HOLYSTAFF_AVALON",
+        "2H_HOLYSTAFF_CRYSTAL"
     ],
-    "Arcanist":[
-        "2H_ARCANIST",
-        "2H_ARCANIST_UNDEAD",
-        "2H_ARCANIST_HELL",
-        "2H_ARCANIST_KEEPER",
-        "2H_ARCANIST_AVALON",
-        "2H_ARCANIST_CRYSTAL"
+    "Arcanist": [
+        "MAIN_ARCANESTAFF",
+        "2H_ARCANESTAFF",
+        "2H_ENIGMATICSTAFF",
+        "MAIN_ARCANESTAFF_UNDEAD",
+        "2H_ARCANESTAFF_HELL",
+        "2H_ENIGMATICORB_MORGANA",
+        "2H_ARCANE_RINGPAIR_AVALON",
+        "2H_ARCANESTAFF_CRYSTAL"
     ],
     "Frost Mage": [
+        "MAIN_FROSTSTAFF",
         "2H_FROSTSTAFF",
-        "2H_FROSTSTAFF_UNDEAD",
-        "2H_FROSTSTAFF_HELL",
-        "2H_FROSTSTAFF_KEEPER",
-        "2H_FROSTSTAFF_AVALON",
+        "2H_GLACIALSTAFF",
+        "MAIN_FROSTSTAFF_KEEPER",
+        "2H_ICEGAUNTLETS_HELL",
+        "2H_ICECRYSTAL_UNDEAD",
+        "MAIN_FROSTSTAFF_AVALON",
         "2H_FROSTSTAFF_CRYSTAL"
     ],
-    "Warlock":[
-        "2H_WARLOCKSTAFF",
-        "2H_WARLOCKSTAFF_UNDEAD",
-        "2H_WARLOCKSTAFF_HELL",
-        "2H_WARLOCKSTAFF_KEEPER",
-        "2H_WARLOCKSTAFF_AVALON",
-        "2H_WARLOCKSTAFF_CRYSTAL"
+    "Warlock": [
+        "MAIN_CURSEDSTAFF",
+        "2H_CURSEDSTAFF",
+        "2H_DEMONICSTAFF",
+        "MAIN_CURSEDSTAFF_UNDEAD",
+        "2H_SKULLORB_HELL",
+        "2H_CURSEDSTAFF_MORGANA",
+        "MAIN_CURSEDSTAFF_AVALON",
+        "MAIN_CURSEDSTAFF_CRYSTAL"
     ],
-    "Tome":[
-        "2H_TOME",
-        "2H_TOME_UNDEAD",
-        "2H_TOME_HELL",
-        "2H_TOME_KEEPER",
-        "2H_TOME_AVALON",
-        "2H_TOME_CRYSTAL"
+    "Tome": [
+        "OFF_BOOK",
+        "OFF_ORB_MORGANA",
+        "OFF_DEMONSKULL_HELL",
+        "OFF_TOTEM_KEEPER",
+        "OFF_CENSER_AVALON"
     ],
     "Plate Helmet": [
-        "PLATE_HELMET",
-        "PLATE_HELMET_UNDEAD",
-        "PLATE_HELMET_HELL",
-        "PLATE_HELMET_KEEPER",
-        "PLATE_HELMET_AVALON",
-        "PLATE_HELMET_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Plate Armor": [
-        "PLATE_ARMOR",
-        "PLATE_ARMOR_UNDEAD",
-        "PLATE_ARMOR_HELL",
-        "PLATE_ARMOR_KEEPER",
-        "PLATE_ARMOR_AVALON",
-        "PLATE_ARMOR_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Plate Boots": [
-        "PLATE_BOOTS",
-        "PLATE_BOOTS_UNDEAD",
-        "PLATE_BOOTS_HELL",
-        "PLATE_BOOTS_KEEPER",
-        "PLATE_BOOTS_AVALON",
-        "PLATE_BOOTS_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Cloth Helmet": [
-        "CLOTH_HELMET",
-        "CLOTH_HELMET_UNDEAD",
-        "CLOTH_HELMET_HELL",
-        "CLOTH_HELMET_KEEPER",
-        "CLOTH_HELMET_AVALON",
-        "CLOTH_HELMET_CRYSTAL"
+        "HEAD_CLOTH_SET1",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Cloth Armor": [
-        "CLOTH_ARMOR",
-        "CLOTH_ARMOR_UNDEAD",
-        "CLOTH_ARMOR_HELL",
-        "CLOTH_ARMOR_KEEPER",
-        "CLOTH_ARMOR_AVALON",
-        "CLOTH_ARMOR_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Cloth Boots": [
-        "CLOTH_BOOTS",
-        "CLOTH_BOOTS_UNDEAD",
-        "CLOTH_BOOTS_HELL",
-        "CLOTH_BOOTS_KEEPER",
-        "CLOTH_BOOTS_AVALON",
-        "CLOTH_BOOTS_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Leather Helmet": [
-        "LEATHER_HELMET",
-        "LEATHER_HELMET_UNDEAD",
-        "LEATHER_HELMET_HELL",
-        "LEATHER_HELMET_KEEPER",
-        "LEATHER_HELMET_AVALON",
-        "LEATHER_HELMET_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Leather Armor": [
-        "LEATHER_ARMOR",
-        "LEATHER_ARMOR_UNDEAD",
-        "LEATHER_ARMOR_HELL",
-        "LEATHER_ARMOR_KEEPER",
-        "LEATHER_ARMOR_AVALON",
-        "LEATHER_ARMOR_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
     ],
     "Leather Boots": [
-        "LEATHER_BOOTS",
-        "LEATHER_BOOTS_UNDEAD",
-        "LEATHER_BOOTS_HELL",
-        "LEATHER_BOOTS_KEEPER",
-        "LEATHER_BOOTS_AVALON",
-        "LEATHER_BOOTS_CRYSTAL"
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+    ],
+    "Cape":[
+        "CAPE",
+        "CAPEITEM_FW_BRIDGEWATCH",
+        "CAPEITEM_FW_FORTSTERLING",
+        "CAPEITEM_FW_LYMHURST",
+        "CAPEITEM_FW_MARTLOCK",
+        "CAPEITEM_FW_THETFORD",
+        "CAPEITEM_FW_CAERLEON",
+        "CAPEITEM_FW_BRECILIEN",
+        "CAPEITEM_AVALON",
+        "CAPEITEM_SMUGGLER",
+        "CAPEITEM_HERETIC",
+        "CAPEITEM_UNDEAD",
+        "CAPEITEM_KEEPER",
+        "CAPEITEM_MORGANA",
+        "CAPEITEM_DEMON"
     ],
     "Mount": [
         "T3_MOUNT_HORSE",
@@ -259,6 +316,5 @@
         "T8_POTION_CLEANSE@1",
         "T8_POTION_CLEANSE@2",
         "T8_POTION_CLEANSE@3"
-
     ]
 }
