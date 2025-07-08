@@ -49,7 +49,7 @@ const categoryList = [
   "Cloth Robe",
   "Cloth Sandals",
   "Mount",
-  "Potion",
+  "Potion"
 ];
 
 function useLocalStorageRef(key, defaultValue = "") {
