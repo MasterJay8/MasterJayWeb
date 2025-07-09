@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, computed, onMounted, watch } from "vue";
 import itemsRaw from "../../src/assets/items.txt?raw";
 import itemsJson from "../../src/assets/items.json";
 
@@ -49,8 +49,9 @@ const categoryList = [
   "Cloth Robe",
   "Cloth Sandals",
   "Mount",
-  "Potion"
+  "Potion",
 ];
+const excludedCategories = ["Mount", "Potion"];
 
 function useLocalStorageRef(key, defaultValue = "") {
   const stored = localStorage.getItem(key) ?? defaultValue;
@@ -64,6 +65,7 @@ const selectedCity = useLocalStorageRef("selectedCity");
 const selectedCategory = useLocalStorageRef("selectedCategory");
 const selectedBoSoCity = useLocalStorageRef("selectedBoSoCity");
 const selectedIbSoCity = useLocalStorageRef("selectedIbSoCity");
+const selectedSort = useLocalStorageRef("selectedSort");
 
 const LOCAL_CACHE_KEY = "cachedCityItems";
 
@@ -159,10 +161,14 @@ const nameMap = (() => {
       .trim()
       .split("\n")
       .map((line) => {
-        const match = line.match(/^\s*\d+:\s*(.+?)\s+:\s*(.+)$/);
-        if (!match) return null;
+        const match = line.split(":");
+        if (match.length != 3) return null;
         const code = match[1].trim();
-        const name = match[2].trim().split(" ").slice(1).join(" ");
+        let name;
+        if (!excludedCategories.includes(selectedCategory.value)) {
+          //console.log(match[2].trim().split(" ").slice(1).join(" "));
+          name = match[2].trim().split(" ").slice(1).join(" ");
+        } else name = match[2].trim();
         return [code, name];
       })
       .filter(Boolean)
@@ -205,6 +211,7 @@ function UpdateBoSoProfit(SoCity) {
       entry[6] = calculateProfit(entry, SoCity, "Bo");
     });
   }
+  sortItemsProfit();
 }
 
 function UpdateIbSoProfit(SoCity) {
@@ -214,22 +221,80 @@ function UpdateIbSoProfit(SoCity) {
       entry[7] = calculateProfit(entry, SoCity, "Ib");
     });
   }
+  sortItemsProfit();
 }
+
+function sortItemsProfit() {
+  if (selectedSort.value == 0) {
+    cityItems.value[selectedCity.value].sort((a, b) => {
+      const nameA = a[0].toLowerCase();
+      const nameB = b[0].toLowerCase();
+      if (nameA < nameB) return -1;
+      if (nameA > nameB) return 1;
+
+      const qualityA = parseFloat(a[1]);
+      const qualityB = parseFloat(b[1]);
+
+      return qualityA - qualityB;
+    });
+  } else if (selectedSort.value == 6) {
+    cityItems.value[selectedCity.value].sort((a, b) =>
+      isNaN(b[selectedSort.value])
+        ? isNaN(a[selectedSort.value])
+          ? 0
+          : -1
+        : isNaN(a[selectedSort.value])
+        ? 1
+        : b[selectedSort.value] - a[selectedSort.value]
+    );
+  } else {
+    cityItems.value[selectedCity.value].sort((a, b) =>
+      isNaN(b[selectedSort.value])
+        ? isNaN(a[selectedSort.value])
+          ? 0
+          : -1
+        : isNaN(a[selectedSort.value])
+        ? 1
+        : b[selectedSort.value] - a[selectedSort.value]
+    );
+  }
+}
+
+const T4T8ITEMS = computed(() => {
+  return itemsJson[selectedCategory.value] ?? itemsJson["Bag"];
+});
 
 const loadPrices = async () => {
   try {
     cityItems.value = {};
 
-    const T4T8ITEMS = ref(
+    /*const T4T8ITEMS = ref(
       itemsJson[selectedCategory.value] ?? itemsJson["Bag"]
-    );
+    );*/
 
-    const allItemIds = T4T8ITEMS.value.flatMap((item) =>
-      TIERS.flatMap((tier) => [
-        `T${tier}_${item}`,
-        ...QUALITY_LEVELS.map((q) => `T${tier}_${item}@${q}`),
-      ])
-    );
+    /*let allItemIds = [];
+    if (!excludedCategories.includes(selectedCategory.value)) {
+      allItemIds = T4T8ITEMS.value.flatMap((item) =>
+        TIERS.flatMap((tier) => [
+          `T${tier}_${item}`,
+          ...QUALITY_LEVELS.map((q) => `T${tier}_${item}@${q}`),
+        ])
+      );
+    } else {
+      allItemIds = Object.values(T4T8ITEMS.value);
+    }*/
+
+    let allItemIds = [];
+    if (!excludedCategories.includes(selectedCategory.value)) {
+      allItemIds = T4T8ITEMS.value.flatMap((item) =>
+        TIERS.flatMap((tier) => [
+          `T${tier}_${item}`,
+          ...QUALITY_LEVELS.map((q) => `T${tier}_${item}@${q}`),
+        ])
+      );
+    } else {
+      allItemIds = Object.values(T4T8ITEMS.value);
+    }
 
     const stringAllItems = allItemIds.join(",");
 
@@ -248,16 +313,15 @@ const loadPrices = async () => {
       const quality = `${id.slice(1, 2)}.${base[1]}`;
 
       cityItems.value[city].push([
-        nameMap[id] ?? base[0],
+        nameMap[id],
         quality,
         obj.sell_price_min,
-        GetElapsedTime(obj.sell_price_min_date),
+        obj.sell_price_min_date,
         obj.buy_price_max,
-        GetElapsedTime(obj.buy_price_max_date),
+        obj.buy_price_max_date,
       ]);
     }
 
-    //test
     fillMissingPricesFromCache();
 
     saveItemsToCache(cityItems.value);
@@ -273,6 +337,8 @@ const loadPrices = async () => {
 
   UpdateBoSoProfit(selectedBoSoCity.value);
   UpdateIbSoProfit(selectedIbSoCity.value);
+
+  sortItemsProfit();
 };
 
 onMounted(async () => {
@@ -285,9 +351,20 @@ watch(selectedCategory, async () => {
 
 watch(selectedBoSoCity, UpdateBoSoProfit);
 watch(selectedIbSoCity, UpdateIbSoProfit);
+watch(selectedSort, sortItemsProfit);
 watch(selectedCity, async () => {
   localStorage.setItem("selectedCity", selectedCity.value);
+  sortItemsProfit();
 });
+
+function updateSortValue() {
+  let newSort;
+  let currentSort = parseInt(selectedSort.value);
+  if (currentSort === 0) newSort = 6;
+  else if (currentSort === 6) newSort = 7;
+  else newSort = 0;
+  selectedSort.value = newSort;
+}
 
 function getBackgroundColor(y, val) {
   if (["X", undefined, null].includes(val)) return "transparent";
@@ -302,6 +379,7 @@ function getBackgroundColor(y, val) {
   }
 
   if (y === 3 || y === 5) {
+    val = GetElapsedTime(val);
     if (typeof val === "string" && val.includes("m"))
       return "rgba(50, 205, 128, 0.8)";
     const time = parseFloat(val);
@@ -343,7 +421,7 @@ function getBackgroundColor(y, val) {
             <td>Sell Order</td>
             <td></td>
             <td>Buy Order</td>
-            <td></td>
+            <td><button @click="updateSortValue">X</button></td>
             <td>
               <select class="dropdown" v-model="selectedBoSoCity">
                 <option disabled value="">-- Please select --</option>
@@ -368,7 +446,13 @@ function getBackgroundColor(y, val) {
               :key="y"
               :style="{ backgroundColor: getBackgroundColor(y, cell) }"
             >
-              {{ y == 2 || y == 4 || y == 6 || y == 7 ? NWS(cell) : cell }}
+              {{
+                [2, 4, 6, 7].includes(y)
+                  ? NWS(cell)
+                  : [3, 5].includes(y)
+                  ? GetElapsedTime(cell)
+                  : cell
+              }}
             </td>
           </tr>
         </tbody>
