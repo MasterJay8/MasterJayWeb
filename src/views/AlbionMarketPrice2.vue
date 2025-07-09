@@ -52,6 +52,7 @@ const categoryList = [
   "Potion",
 ];
 const excludedCategories = ["Mount", "Potion"];
+const excludedWords = ["Journeman's","Adept's","Expert's","Master's","Grandmaster's","Elder's"]
 
 function useLocalStorageRef(key, defaultValue = "") {
   const stored = localStorage.getItem(key) ?? defaultValue;
@@ -165,10 +166,15 @@ const nameMap = (() => {
         if (match.length != 3) return null;
         const code = match[1].trim();
         let name;
-        if (!excludedCategories.includes(selectedCategory.value)) {
+        console.log(match[2].trim().split(" ")[0]);
+        /*if (!excludedCategories.includes(selectedCategory.value)) {
           //console.log(match[2].trim().split(" ").slice(1).join(" "));
           name = match[2].trim().split(" ").slice(1).join(" ");
-        } else name = match[2].trim();
+        } */
+        if (excludedWords.includes(match[2].trim().split(" ")[0])) {
+          name = match[2].trim().split(" ").slice(1).join(" ");
+        }
+        else name = match[2].trim();
         return [code, name];
       })
       .filter(Boolean)
