@@ -10,8 +10,7 @@ import Home from '../src/views/Home.vue'
 const routes = [
     { path: '/', name: "home", component: Home },
     { path: '/klikacka', name: "klikacka", component: () => import('../src/views/Klikacka.vue') },
-    { path: '/albionmarketprice', name: "albionmarketprice", component: () => import('../src/views/AlbionMarketPrice.vue') },
-    { path: '/albionmarketprice2', name: "albionmarketprice2", component: () => import('../src/views/AlbionMarketPrice2.vue') },
+    { path: '/albionmarketprice', name: "albionmarketprice", component: () => import('../src/views/AlbionMarketPrice.vue') }
 ]
 
 const router = createRouter({
