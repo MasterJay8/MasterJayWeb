@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/klikacka", "destination": "/" },
+    { "source": "/albionmarketprice", "destination": "/" }
+  ]
+}
