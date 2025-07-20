@@ -195,7 +195,7 @@
         "OFF_TOTEM_KEEPER",
         "OFF_CENSER_AVALON"
     ],
-    "Plate Helmet": [
+    "Plate Head": [
         "HEAD_PLATE_SET1",
         "HEAD_PLATE_SET2",
         "HEAD_PLATE_SET3",
@@ -217,7 +217,7 @@
         "ARMOR_PLATE_AVALON",
         "ARMOR_PLATE_ROYAL"
     ],
-    "Plate Boots": [
+    "Plate Shoes": [
         "SHOES_PLATE_SET1",
         "SHOES_PLATE_SET2",
         "SHOES_PLATE_SET3",
@@ -228,7 +228,7 @@
         "SHOES_PLATE_AVALON",
         "SHOES_PLATE_ROYAL"
     ],
-    "Cloth Helmet": [
+    "Cloth Head": [
         "HEAD_CLOTH_SET1",
         "HEAD_CLOTH_SET2",
         "HEAD_CLOTH_SET3",
@@ -250,7 +250,7 @@
         "ARMOR_CLOTH_AVALON",
         "ARMOR_CLOTH_ROYAL"
     ],
-    "Cloth Boots": [
+    "Cloth Shoes": [
         "SHOES_CLOTH_SET1",
         "SHOES_CLOTH_SET2",
         "SHOES_CLOTH_SET3",
@@ -261,7 +261,7 @@
         "SHOES_CLOTH_AVALON",
         "SHOES_CLOTH_ROYAL"
     ],
-    "Leather Helmet": [
+    "Leather Head": [
         "HEAD_LEATHER_SET1",
         "HEAD_LEATHER_SET2",
         "HEAD_LEATHER_SET3",
@@ -283,7 +283,7 @@
         "ARMOR_LEATHER_AVALON",
         "ARMOR_LEATHER_ROYAL"
     ],
-    "Leather Boots": [
+    "Leather Shoes": [
         "SHOES_LEATHER_SET1",
         "SHOES_LEATHER_SET2",
         "SHOES_LEATHER_SET3",
