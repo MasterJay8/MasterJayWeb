@@ -294,15 +294,7 @@
         "SHOES_LEATHER_AVALON",
         "SHOES_LEATHER_ROYAL"
     ],
-    "Cape": [
-        "CAPE",
-        "CAPEITEM_FW_BRIDGEWATCH",
-        "CAPEITEM_FW_FORTSTERLING",
-        "CAPEITEM_FW_LYMHURST",
-        "CAPEITEM_FW_MARTLOCK",
-        "CAPEITEM_FW_THETFORD",
-        "CAPEITEM_FW_CAERLEON",
-        "CAPEITEM_FW_BRECILIEN",
+    "Cape1": [
         "CAPEITEM_AVALON",
         "CAPEITEM_SMUGGLER",
         "CAPEITEM_HERETIC",
@@ -310,6 +302,16 @@
         "CAPEITEM_KEEPER",
         "CAPEITEM_MORGANA",
         "CAPEITEM_DEMON"
+    ],
+    "Cape2": [
+        "CAPE",
+        "CAPEITEM_FW_BRIDGEWATCH",
+        "CAPEITEM_FW_FORTSTERLING",
+        "CAPEITEM_FW_LYMHURST",
+        "CAPEITEM_FW_MARTLOCK",
+        "CAPEITEM_FW_THETFORD",
+        "CAPEITEM_FW_CAERLEON",
+        "CAPEITEM_FW_BRECILIEN"
     ],
     "Mount": [
         "T2_MOUNT_MULE",

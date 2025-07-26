@@ -49,7 +49,8 @@ const categoryList = [
   "Cloth Head",
   "Cloth Armor",
   "Cloth Shoes",
-  "Cape",
+  "Cape1",
+  "Cape2",
   "Mount",
   "Potion",
 ];
