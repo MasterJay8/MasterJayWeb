@@ -54,6 +54,7 @@ const categoryList = [
   "Mount",
   "Potion",
 ];
+const qualityList = ["1", "2", "3", "4", "5"];
 const excludedCategories = ["Mount", "Potion"];
 const excludedWords = [
   "Journeman's",
@@ -74,9 +75,10 @@ function useLocalStorageRef(key, defaultValue = "") {
 const cityItems = ref({});
 const selectedCity = useLocalStorageRef("selectedCity");
 const selectedCategory = useLocalStorageRef("selectedCategory");
+const selectedQuality = useLocalStorageRef("selectedQuality", "0");
 const selectedBoSoCity = useLocalStorageRef("selectedBoSoCity");
 const selectedIbSoCity = useLocalStorageRef("selectedIbSoCity");
-const selectedSort = useLocalStorageRef("selectedSort");
+const selectedSort = useLocalStorageRef("selectedSort", "0");
 
 const LOCAL_CACHE_KEY = "cachedCityItems";
 
@@ -326,7 +328,7 @@ const loadPrices = async () => {
     const stringAllItems = allItemIds.join(",");
 
     await new Promise((resolve) => setTimeout(resolve, 200));
-    const url = `https://europe.albion-online-data.com/api/v2/stats/prices/${stringAllItems}?locations=${CITY_CODES}&qualities=1`;
+    const url = `https://europe.albion-online-data.com/api/v2/stats/prices/${stringAllItems}?locations=${CITY_CODES}&qualities=${selectedQuality.value}`;
     const data = await (await fetch(url)).json();
 
     for (const obj of data) {
@@ -376,6 +378,10 @@ watch(selectedCategory, async () => {
   await loadPrices();
 });
 
+watch(selectedQuality, async () => {
+  await loadPrices();
+});
+
 watch(selectedBoSoCity, UpdateBoSoProfit);
 watch(selectedIbSoCity, UpdateIbSoProfit);
 watch(selectedSort, sortItemsProfit);
@@ -383,6 +389,8 @@ watch(selectedCity, async () => {
   localStorage.setItem("selectedCity", selectedCity.value);
   sortItemsProfit();
 });
+
+function updateQuality() {}
 
 function updateSortValue() {
   let newSort;
@@ -446,7 +454,14 @@ function getBackgroundColor(y, val) {
             </td>
             <td>Ench</td>
             <td>Sell Order</td>
-            <td></td>
+            <td>
+              <select class="dropdown" id="quality" v-model="selectedQuality">
+                <option disabled value="">-- Please select --</option>
+                <option v-for="item in qualityList" :key="item" :value="item">
+                  {{ item }}
+                </option>
+              </select>
+            </td>
             <td>Buy Order</td>
             <td><button @click="updateSortValue">X</button></td>
             <td>
@@ -459,7 +474,7 @@ function getBackgroundColor(y, val) {
             </td>
             <td>
               <select class="dropdown" v-model="selectedIbSoCity">
-                <option disabled value="">-- Please select --</option>
+                <option disabled value="1">-- Please select --</option>
                 <option v-for="item in cityList" :key="item" :value="item">
                   {{ item }}
                 </option>
@@ -525,6 +540,13 @@ td {
   color: #eee;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+#quality {
+  width: 1.5vw;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
 }
 @media (min-width: 0px) and (max-width: 1500px) {
   table {
