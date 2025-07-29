@@ -54,7 +54,7 @@ const categoryList = [
   "Mount",
   "Potion",
 ];
-const qualityList = ["1", "2", "3", "4", "5"];
+const qualityList = ["0","1", "2", "3", "4"];
 const excludedCategories = ["Mount", "Potion"];
 const excludedWords = [
   "Journeman's",
@@ -456,7 +456,7 @@ function getBackgroundColor(y, val) {
             <td>Sell Order</td>
             <td>
               <select class="dropdown" id="quality" v-model="selectedQuality">
-                <option disabled value="">-- Please select --</option>
+                <option disabled value="">-</option>
                 <option v-for="item in qualityList" :key="item" :value="item">
                   {{ item }}
                 </option>
@@ -474,7 +474,7 @@ function getBackgroundColor(y, val) {
             </td>
             <td>
               <select class="dropdown" v-model="selectedIbSoCity">
-                <option disabled value="1">-- Please select --</option>
+                <option disabled value="">-- Please select --</option>
                 <option v-for="item in cityList" :key="item" :value="item">
                   {{ item }}
                 </option>
