@@ -54,7 +54,7 @@ const categoryList = [
   "Mount",
   "Potion",
 ];
-const qualityList = ["0","1", "2", "3", "4"];
+const qualityList = ["1", "2", "3", "4", "5"];
 const excludedCategories = ["Mount", "Potion"];
 const excludedWords = [
   "Journeman's",
@@ -75,7 +75,7 @@ function useLocalStorageRef(key, defaultValue = "") {
 const cityItems = ref({});
 const selectedCity = useLocalStorageRef("selectedCity");
 const selectedCategory = useLocalStorageRef("selectedCategory");
-const selectedQuality = useLocalStorageRef("selectedQuality", "0");
+const selectedQuality = useLocalStorageRef("selectedQuality");
 const selectedBoSoCity = useLocalStorageRef("selectedBoSoCity");
 const selectedIbSoCity = useLocalStorageRef("selectedIbSoCity");
 const selectedSort = useLocalStorageRef("selectedSort", "0");
@@ -94,7 +94,7 @@ const LOCAL_CACHE_KEY = "cachedCityItems";
 "buy_price_max": 0,
 "buy_price_max_date": "0001-01-01T00:00:00" */
 
-function saveItemsToCache(items) {
+/*function saveItemsToCache(items) {
   const existingRaw = localStorage.getItem(LOCAL_CACHE_KEY);
   let existing = {};
 
@@ -111,6 +111,7 @@ function saveItemsToCache(items) {
       (item) =>
         (item[2] !== 0 && item[2] !== "X") || (item[4] !== 0 && item[4] !== "X")
     );
+    console.log(newItems)
 
     if (!existing[city]) {
       existing[city] = newItems;
@@ -131,9 +132,9 @@ function saveItemsToCache(items) {
   }
 
   localStorage.setItem(LOCAL_CACHE_KEY, JSON.stringify(existing));
-}
+}*/
 
-function loadItemsFromCache() {
+/*function loadItemsFromCache() {
   try {
     const cached = localStorage.getItem(LOCAL_CACHE_KEY);
     if (cached) {
@@ -143,10 +144,11 @@ function loadItemsFromCache() {
     console.warn("Error parsing cached data:", err);
   }
   return null;
-}
+}*/
 
-function fillMissingPricesFromCache() {
+/*function fillMissingPricesFromCache() {
   const cachedRaw = localStorage.getItem(LOCAL_CACHE_KEY);
+  const cachedQuality = localStorage.getItem("selectedQuality");
   if (!cachedRaw) return;
 
   let fallbackAll;
@@ -164,7 +166,7 @@ function fillMissingPricesFromCache() {
     for (let i = 0; i < cityData.length; i++) {
       const item = cityData[i];
       const fallbackItem = fallbackData.find(
-        (f) => f[0] === item[0] && f[1] === item[1]
+        (f) => f[0] === item[0] && f[1] === item[1] && f[6] == cachedQuality
       );
       if (!fallbackItem) continue;
 
@@ -178,7 +180,7 @@ function fillMissingPricesFromCache() {
       }
     }
   }
-}
+}*/
 
 const nameMap = (() => {
   return Object.fromEntries(
@@ -190,9 +192,7 @@ const nameMap = (() => {
         if (match.length != 3) return null;
         const code = match[1].trim();
         let name;
-        console.log(match[2].trim().split(" ")[0]);
         /*if (!excludedCategories.includes(selectedCategory.value)) {
-          //console.log(match[2].trim().split(" ").slice(1).join(" "));
           name = match[2].trim().split(" ").slice(1).join(" ");
         } */
         if (excludedWords.includes(match[2].trim().split(" ")[0])) {
@@ -348,20 +348,20 @@ const loadPrices = async () => {
         obj.sell_price_min_date,
         obj.buy_price_max,
         obj.buy_price_max_date,
+        obj.quality,
       ]);
     }
 
-    fillMissingPricesFromCache();
-
-    saveItemsToCache(cityItems.value);
+    //fillMissingPricesFromCache();
+    //saveItemsToCache(cityItems.value);
 
     localStorage.setItem("selectedCategory", selectedCategory.value);
   } catch (error) {
     console.error("Error fetching data, attempting to load cache:", error);
-    const cached = loadItemsFromCache();
+    /*const cached = loadItemsFromCache();
     if (cached) {
       cityItems.value = cached;
-    }
+    }*/
   }
 
   UpdateBoSoProfit(selectedBoSoCity.value);
@@ -389,8 +389,6 @@ watch(selectedCity, async () => {
   localStorage.setItem("selectedCity", selectedCity.value);
   sortItemsProfit();
 });
-
-function updateQuality() {}
 
 function updateSortValue() {
   let newSort;
