@@ -1,0 +1,25 @@
+// Palette
+$ink:      #1B1F4B;   // text, header
+$ink-soft: #4A4F80;
+$paper:    #EEF0FF;   // page background
+$card:     #FFFFFF;
+$lilac:    #C9C3FF;
+$sun:      #FFD166;   // accent
+$blue:     #3B3FD9;
+$gray:     #acabab;
+
+// Type
+$font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+$font-body:    'Figtree', system-ui, sans-serif;
+
+// Layout
+$content-width: 880px;
+$radius-lg: 22px;
+$radius-sm: 12px;
+
+// Breakpoints
+$bp-md: 760px;
+
+@mixin md-down {
+  @media (max-width: #{$bp-md}) { @content; }
+}

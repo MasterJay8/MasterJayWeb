@@ -1,0 +1,57 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #EEF0FF;
+  color: #1B1F4B;
+  font-family: "Figtree", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Bricolage Grotesque", system-ui, sans-serif;
+  line-height: 1.1;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid #3B3FD9;
+  outline-offset: 3px;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.route-enter-active, .route-leave-active {
+  transition: opacity 0.18s ease;
+}
+
+.route-enter-from, .route-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -2,9 +2,10 @@
   <div>
     <nav>
       <br />
-      &nbsp;&nbsp;<RouterLink to="/">Home</RouterLink><br />
+      &nbsp;&nbsp;<RouterLink to="/">Home</RouterLink> <br />
       &nbsp;&nbsp;<RouterLink to="/klikacka">Klikacka</RouterLink> <br />
-      &nbsp;&nbsp;<RouterLink to="/albionmarketprice">Albion</RouterLink>
+      &nbsp;&nbsp;<RouterLink to="/albionmarketprice">Albion</RouterLink> <br />
+      &nbsp;&nbsp;<RouterLink to="/links">Links</RouterLink>
       <br />
     </nav>
     <main>
@@ -13,7 +14,7 @@
   </div>
 </template>
 <style>
-nav{
+nav {
   display: flex;
   flex-direction: column;
   align-items: center;

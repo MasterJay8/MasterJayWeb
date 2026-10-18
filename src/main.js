@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import './style/style.css'
-import './style/reset.css'
+import './styles/style.css'
+import './styles/reset.css'
 //import './style.css'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router'
@@ -10,7 +10,8 @@ import Home from '../src/views/Home.vue'
 const routes = [
     { path: '/', name: "home", component: Home },
     { path: '/klikacka', name: "klikacka", component: () => import('../src/views/Klikacka.vue') },
-    { path: '/albionmarketprice', name: "albionmarketprice", component: () => import('../src/views/AlbionMarketPrice.vue') }
+    { path: '/albionmarketprice', name: "albionmarketprice", component: () => import('../src/views/AlbionMarketPrice.vue') },
+    { path: '/links', name: "links", component: () => import('../src/views/Links.vue') }
 ]
 
 const router = createRouter({

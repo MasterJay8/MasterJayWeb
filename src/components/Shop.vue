@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, defineProps } from "vue";
-import "../style/ShopStyle/shop.css";
+import "../styles/ShopStyle/shop.css";
 
 import { useCounterStore } from "../stores/store";
 const useCounter = useCounterStore();
