@@ -1,8 +1,8 @@
 <script setup>
 import { ref, onMounted, defineProps } from "vue";
-import "../styles/ShopStyle/shop.css";
+import "../../styles/clickerStyle/SettingsStyle/settings.css";
 
-import { useCounterStore } from "../stores/store";
+import { useCounterStore } from "../../stores/store";
 const useCounter = useCounterStore();
 
 const props = defineProps({
@@ -13,11 +13,7 @@ const props = defineProps({
 
 <template>
   <div v-if="isOpen" class="settings">
-    <div class="item">
-      <img src="/img/Trophy.png" alt="">
-      <div class="buy">Koupit Trofej</div>
-    </div>
-
+    <div @click="useCounter.Reset" class="restart">Resetovat hru</div>
     <button @click="$emit('close')">Close</button>
   </div>
 </template>

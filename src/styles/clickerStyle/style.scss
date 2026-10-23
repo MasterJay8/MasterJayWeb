@@ -3,9 +3,9 @@
 body {
 
     .all {
-        //background-image: url("../img/sky4.png");
-        //background-image: url("../img/sky3.jpg");
-        background-image: url("/img/background1.jpg");
+        //background-image: url("../clicker/sky4.png");
+        //background-image: url("../clicker/sky3.jpg");
+        background-image: url("/clicker/background1.jpg");
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -318,7 +318,7 @@ body {
                         .img {
                             width: 19%;
 
-                            img {}
+                            //img {}
                         }
 
                         .stats {
@@ -345,7 +345,7 @@ body {
                             width: 31%;
                             margin-block: 0;
 
-                            i {}
+                            //i {}
 
                             .upgradeCost {
 
@@ -445,7 +445,7 @@ body {
                         .img {
                             width: 19%;
 
-                            img {}
+                            //img {}
                         }
 
                         .stats {
@@ -472,7 +472,7 @@ body {
                             width: 29%;
                             margin-block: 0;
 
-                            i {}
+                            //i {}
 
                             .upgradeCost {
 
@@ -520,7 +520,7 @@ body {
             .clicker {
                 align-self: center;
 
-                #clicker {}
+                //#clicker {}
 
                 img {
                     width: 100%;

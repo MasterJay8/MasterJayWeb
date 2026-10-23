@@ -1,4 +1,4 @@
-import { ref, computed, onUpdated } from 'vue'
+import {  ref, computed, onUpdated } from 'vue'
 import { defineStore } from 'pinia'
 import { useLocalStorage } from '@vueuse/core'
 //import {}
@@ -12,7 +12,7 @@ export const useCharacterStore = defineStore('character', () => {
     let character = ref(useLocalStorage("Character", [
         {
             id: 1,
-            imgPath: "/img/peaseant3.png",
+            imgPath: "/clicker/peaseant3.png",
             name: "Peaseant",
             level: 0,
             earn: 0,
@@ -22,7 +22,7 @@ export const useCharacterStore = defineStore('character', () => {
         },
         {
             id: 2,
-            imgPath: "/img/asiaGang.png",
+            imgPath: "/clicker/asiaGang.png",
             name: "Ballers",
             level: 0,
             earn: 0,
@@ -32,7 +32,7 @@ export const useCharacterStore = defineStore('character', () => {
         },
         {
             id: 3,
-            imgPath: "/img/asian3.png",
+            imgPath: "/clicker/asian3.png",
             name: "Min",
             level: 0,
             earn: 0,
@@ -42,7 +42,7 @@ export const useCharacterStore = defineStore('character', () => {
         },
         {
             id: 4,
-            imgPath: "/img/cartman.png",
+            imgPath: "/clicker/cartman.png",
             name: "Cartman",
             level: 0,
             earn: 0,
@@ -52,7 +52,7 @@ export const useCharacterStore = defineStore('character', () => {
         },
         {
             id: 5,
-            imgPath: "/img/cityguy2.png",
+            imgPath: "/clicker/cityguy2.png",
             name: "Cityguy",
             level: 0,
             earn: 0,
@@ -62,7 +62,7 @@ export const useCharacterStore = defineStore('character', () => {
         },
         {
             id: 6,
-            imgPath: "/img/worker.png",
+            imgPath: "/clicker/worker.png",
             name: "Worker",
             level: 0,
             earn: 0,
@@ -72,7 +72,7 @@ export const useCharacterStore = defineStore('character', () => {
         },
         {
             id: 7,
-            imgPath: "/img/kim.png",
+            imgPath: "/clicker/kim.png",
             name: "Kim",
             level: 0,
             earn: 0,

@@ -29,7 +29,7 @@ $skillsButtonBackgroundColor:#6D597A;
 $settingsButtonColor:#EAAC8B;
 $settingsButtonBackgroundColor:#6D597A;*/
 body .all {
-  background-image: url("/img/background1.jpg");
+  background-image: url("/clicker/background1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

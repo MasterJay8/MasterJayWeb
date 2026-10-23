@@ -1,10 +1,11 @@
 <script setup>
 //import { useMounted } from "@vueuse/core";
 import { ref, onMounted, onBeforeUnmount, computed } from "vue";
-import Character from "../components/Character.vue";
-import Popup from "../components/Popup.vue";
-import Settings from "../components/Settings.vue";
-import Shop from "../components/Shop.vue";
+import Character from "../components/clicker/Character.vue";
+import Popup from "../components/clicker/Popup.vue";
+import Settings from "../components/clicker/Settings.vue";
+import Shop from "../components/clicker/Shop.vue";
+import '../styles/clickerStyle/style.css'
 
 import { useCounterStore } from "../stores/store";
 const useCounter = useCounterStore();
@@ -74,11 +75,11 @@ onBeforeUnmount(() => {
           </button>
 
           <button class="shop">
-            <img src="/img/chopsticks.png" alt="" />
+            <img src="/clicker/chopsticks.png" alt="" />
           </button>
 
           <button class="shop">
-            <img src="/img/noodle.png" alt="" />
+            <img src="/clicker/noodle.png" alt="" />
           </button>
         </div>
 
@@ -96,8 +97,8 @@ onBeforeUnmount(() => {
         <i id="skill" class="fa-solid fa-coins"></i>
       </div>
       <div class="clicker">
-        <!-- <img id="clicker" src="/img/coin.png" alt="" /> -->
-        <img id="clicker" src="/img/ramen.png" @click="useCounter.addCoins" />
+        <!-- <img id="clicker" src="/clicker/coin.png" alt="" /> -->
+        <img id="clicker" src="/clicker/ramen.png" @click="useCounter.addCoins" />
       </div>
       <div class="navSettings">
         <i @click="openSettings" class="fa-solid fa-gear"></i>

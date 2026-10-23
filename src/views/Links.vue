@@ -1,5 +1,5 @@
 <script setup>
-import SocialLink from "../components/Links/SocialLink.vue";
+import SocialLink from "../components/links/SocialLink.vue";
 import { socials } from "../data/socials";
 </script>
 
@@ -8,12 +8,12 @@ import { socials } from "../data/socials";
     <header class="header">
       <div class="header__inner">
         <RouterLink to="/" class="header__logo" aria-label="Home">
-          <img src="/Links/logo.svg" alt="Logo" width="52" height="52" />
+          <img src="/links/logo.svg" alt="Logo" width="52" height="52" />
         </RouterLink>
 
         <div class="header__banner">
-          <!-- <img src="/Links/banner.svg" alt="" /> -->
-          <img src="/Links/gyro.png" alt="" />
+          <!-- <img src="/links/banner.svg" alt="" /> -->
+          <img src="/links/gyro.png" alt="" />
         </div>
       </div>
     </header>
