@@ -8,7 +8,7 @@ import { socials } from "../data/socials";
     <header class="header">
       <div class="header__inner">
         <RouterLink to="/" class="header__logo" aria-label="Home">
-          <img src="/links/logo.svg" alt="Logo" width="52" height="52" />
+          <img src="/icon7.png" alt="Logo" width="52" height="52" />
         </RouterLink>
 
         <div class="header__banner">
@@ -16,6 +16,7 @@ import { socials } from "../data/socials";
           <img src="/links/gyro.png" alt="" />
         </div>
       </div>
+      <h3>@jiripadour_</h3>
     </header>
     <!-- <h1 class="title">Find me online</h1> -->
     <!-- <p class="subtitle"></p> -->
@@ -31,9 +32,13 @@ import { socials } from "../data/socials";
 <style lang="scss" scoped>
 @use "../styles/LinksStyle/variables" as *;
 
-//Header
-.header {
+.page{
   background: $ink;
+  height:100vh;
+}
+// Header – unchanged
+.header {
+  //background: $ink;
   padding: 0.9rem 1.5rem;
 
   &__inner {
@@ -55,7 +60,7 @@ import { socials } from "../data/socials";
 
   &__logo {
     display: block;
-    border-radius: 16px;
+    border-radius: 15px;
     transition: transform 0.2s ease;
     &:hover {
       transform: rotate(-6deg);
@@ -69,7 +74,7 @@ import { socials } from "../data/socials";
     justify-self: center;
     width: 100%;
     max-width: 30rem;
-    height: 200px;
+    height: 220px;
     border-radius: $radius-sm;
     overflow: hidden;
     @include md-down {
@@ -113,7 +118,21 @@ import { socials } from "../data/socials";
   }
 }
 
-//Body
+h1,
+h2,
+h3 {
+  //font-family: $font-display;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  font-size: clamp(1.8rem, 7vw, 2.4rem);
+  //font-size: 3rem;
+  text-align:center;
+  line-height: 1.1;
+  margin: 0;
+  font-weight: bold;
+}
+
+// Body typography – unchanged
 .title {
   font-size: clamp(2.2rem, 6vw, 3.6rem);
   font-weight: 800;
@@ -127,19 +146,19 @@ import { socials } from "../data/socials";
   font-size: 1.1rem;
 }
 
+// List of social links – responsive card grid
 .list {
   list-style: none;
   margin: 0;
-  padding: 0;
+  /* Use responsive columns; each card at least 260px wide */
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  padding: 2rem 15rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
+  padding: 2rem 1rem; // reduced side padding for better width usage
 
   @include md-down {
-    //grid-template-columns: 1fr;
-    padding: 0.7rem 2rem;
-    gap: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    gap: 1rem;
   }
 }
 </style>

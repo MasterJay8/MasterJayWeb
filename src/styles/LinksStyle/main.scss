@@ -1,26 +1,33 @@
 @use 'variables' as *;
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   margin: 0;
   background: $paper;
   color: $ink;
-  font-family: $font-body;
+  //font-family: $font-body;
+  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-family: $font-display;
-  line-height: 1.1;
-  margin: 0;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-img { max-width: 100%; display: block; }
-a { color: inherit; }
+a {
+  color: inherit;
+}
 
 :focus-visible {
   outline: 3px solid $blue;
@@ -34,9 +41,22 @@ a { color: inherit; }
 }
 
 // Route change fade (reacts to the user clicking a link)
-.route-enter-active, .route-leave-active { transition: opacity .18s ease; }
-.route-enter-from, .route-leave-to { opacity: 0; }
+.route-enter-active,
+.route-leave-active {
+  transition: opacity .18s ease;
+}
+
+.route-enter-from,
+.route-leave-to {
+  opacity: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition: none !important; animation: none !important; }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

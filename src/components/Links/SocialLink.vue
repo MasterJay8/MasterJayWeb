@@ -18,9 +18,9 @@ defineProps({
     <img class="social__img" :src="img" alt="" width="56" height="56" />
     <span class="social__text">
       <span class="social__name">{{ name }}</span>
-      <span class="social__url">{{
+      <!-- <span class="social__url">{{
         link.replace(/^https?:\/\/(www\.)?/, "")
-      }}</span>
+      }}</span> -->
     </span>
     <svg
       class="social__icon"
@@ -43,17 +43,21 @@ defineProps({
 
 <style lang="scss" scoped>
 @use "../../styles/LinksStyle/variables" as *;
+
+/* Updated card appearance */
 .social {
   position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem 1.2rem 1rem 1.4rem;
-  background: $gray;
+  background: $card; // use card background for a clean tile
   border-radius: $radius-lg;
   text-decoration: none;
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  // subtle default shadow
+  box-shadow: 0 2px 6px rgba($ink, 0.05);
 
   // coloured edge that widens on hover
   &::before {
@@ -67,7 +71,9 @@ defineProps({
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba($ink, 0.14);
+    // deepen shadow on hover
+    box-shadow: 0 4px 12px rgba($ink, 0.12);
+    background: $lilac;
     &::before {
       width: 12px;
     }
@@ -93,7 +99,7 @@ defineProps({
   }
 
   &__name {
-    color: #000;
+    color: $ink; // use ink color for better contrast on card background
     font-family: $font-display;
     font-weight: 700;
     font-size: 1.3rem;
@@ -115,4 +121,3 @@ defineProps({
   }
 }
 </style>
-
