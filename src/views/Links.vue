@@ -1,8 +1,8 @@
 <script setup>
 import SocialLink from "../components/links/SocialLink.vue";
 import { socials } from "../data/socials";
-import gyroImg from "../assets/links/gyro.png";
 import logoImg from "../assets/icon7.png";
+import bannerImg from "../assets/links/gyro.png";
 </script>
 
 <template>
@@ -15,7 +15,7 @@ import logoImg from "../assets/icon7.png";
 
         <div class="header__banner">
           <!-- <img src="/links/banner.svg" alt="" /> -->
-          <img :src="gyroImg" alt="" />
+          <img :src="bannerImg" alt="" />
         </div>
       </div>
       <h3>@jiripadour_</h3>
