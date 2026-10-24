@@ -1,8 +1,8 @@
 <script setup>
 import SocialLink from "../components/links/SocialLink.vue";
 import { socials } from "../data/socials";
-import logoImg from "../assets/icon7.png";
-import bannerImg from "../assets/links/gyro.png";
+import logoImg from "../../public/icon7.png";
+import bannerImg from "../../public/links/gyro.png";
 </script>
 
 <template>
