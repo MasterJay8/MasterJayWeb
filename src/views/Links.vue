@@ -1,6 +1,8 @@
 <script setup>
 import SocialLink from "../components/links/SocialLink.vue";
 import { socials } from "../data/socials";
+import gyroImg from "../assets/links/gyro.png";
+import logoImg from "../assets/icon7.png";
 </script>
 
 <template>
@@ -8,12 +10,12 @@ import { socials } from "../data/socials";
     <header class="header">
       <div class="header__inner">
         <RouterLink to="/" class="header__logo" aria-label="Home">
-          <img src="/icon7.png" alt="Logo" width="52" height="52" />
+          <img :src="logoImg" alt="Logo" width="52" height="52" />
         </RouterLink>
 
         <div class="header__banner">
           <!-- <img src="/links/banner.svg" alt="" /> -->
-          <img src="/links/gyro.png" alt="" />
+          <img :src="gyroImg" alt="" />
         </div>
       </div>
       <h3>@jiripadour_</h3>
