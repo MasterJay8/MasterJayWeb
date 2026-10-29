@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    // Preserve the original path (including query and hash)
+    const path = window.location.pathname + window.location.search + window.location.hash;
+    // Encode it and redirect to the SPA entry point with a redirect query param
+    const target = '/?redirect=' + encodeURIComponent(path);
+    // Replace current entry to avoid extra history entry
+    window.location.replace(target);
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>

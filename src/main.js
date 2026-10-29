@@ -24,3 +24,11 @@ const app = createApp(App)
 app.use(createPinia())
 app.use(router)
 app.mount('#app')
+
+// Handle redirect param from 404 fallback
+router.isReady().then(() => {
+  const redirect = router.currentRoute.value.query.redirect;
+  if (redirect) {
+    router.replace(redirect);
+  }
+});
