@@ -73,7 +73,7 @@ defineProps({
     transform: translateY(-3px);
     // deepen shadow on hover
     box-shadow: 0 4px 12px rgba($ink, 0.12);
-    background: $lilac;
+    background: $card-hover;
     &::before {
       width: 12px;
     }
@@ -99,7 +99,7 @@ defineProps({
   }
 
   &__name {
-    color: $ink; // use ink color for better contrast on card background
+    color: $text-card; // use ink color for better contrast on card background
     font-family: $font-display;
     font-weight: 700;
     font-size: 1.3rem;
@@ -107,7 +107,7 @@ defineProps({
   }
 
   &__url {
-    color: $ink-soft;
+    color: $text-card-url;
     font-size: 0.9rem;
     white-space: nowrap;
     overflow: hidden;
@@ -116,7 +116,7 @@ defineProps({
 
   &__icon {
     flex: none;
-    color: $ink-soft;
+    color: $text-card-url;
     transition: transform 0.2s ease, color 0.2s ease;
   }
 }

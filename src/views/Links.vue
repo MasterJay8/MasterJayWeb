@@ -35,7 +35,7 @@ import bannerImg from "../assets/links/gyro.png";
 @use "../styles/LinksStyle/variables" as *;
 
 .page{
-  background: $ink;
+  background: $background;
   height:100vh;
 }
 // Header – unchanged
@@ -102,7 +102,7 @@ import bannerImg from "../assets/links/gyro.png";
     }
 
     a {
-      color: $lilac;
+      color: $text-card-url;
       text-decoration: none;
       font-weight: 500;
       padding: 0.45rem 0.9rem;
@@ -110,11 +110,11 @@ import bannerImg from "../assets/links/gyro.png";
       transition: background 0.15s ease, color 0.15s ease;
 
       &:hover {
-        background: rgba($lilac, 0.15);
+        background: rgba($text-card-url, 0.15);
       }
       &.router-link-exact-active {
         background: $sun;
-        color: $ink;
+        color: $text-card-url;
       }
     }
   }
@@ -123,9 +123,8 @@ import bannerImg from "../assets/links/gyro.png";
 h1,
 h2,
 h3 {
-  //font-family: $font-display;
-  font-family: 'Roboto', sans-serif;
-  color:white;
+  font-family: $font-display;
+  color:$text;
   font-size: clamp(1.8rem, 7vw, 2.4rem);
   //font-size: 3rem;
   text-align:center;
@@ -139,12 +138,12 @@ h3 {
   font-size: clamp(2.2rem, 6vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: $paper;
+  color: $text;
 }
 
 .subtitle {
   margin: 0.8rem 0 2.2rem;
-  color: $paper;
+  color: $text;
   font-size: 1.1rem;
 }
 
@@ -159,7 +158,7 @@ h3 {
   padding: 2rem 1rem; // reduced side padding for better width usage
 
   @include md-down {
-    padding: 0.7rem 0.9rem;
+    padding: 0.7rem 1rem;
     gap: 1rem;
   }
 }
