@@ -36,7 +36,9 @@ import bannerImg from "../assets/links/gyro.png";
 
 .page{
   background: $background;
-  height:100vh;
+  min-height: 100vh;
+  height:auto;
+  background-size:cover;
 }
 // Header – unchanged
 .header {
@@ -76,7 +78,7 @@ import bannerImg from "../assets/links/gyro.png";
     justify-self: center;
     width: 100%;
     max-width: 30rem;
-    height: 220px;
+    height: 400px;
     border-radius: $radius-sm;
     overflow: hidden;
     @include md-down {
@@ -86,10 +88,16 @@ import bannerImg from "../assets/links/gyro.png";
     }
 
     img {
-      width: 100%;
+      width: 80%;
       height: 100%;
+      display:flex;
+      margin: auto;
       object-fit: cover;
       object-position: top center;
+      @include md-down {
+        //margin: auto;
+        width: 60%;
+    }
     }
   }
 
