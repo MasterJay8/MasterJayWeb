@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="UTF-8" />
   <title>Redirecting...</title>
@@ -11,8 +12,19 @@
     // Replace current entry to avoid extra history entry
     window.location.replace(target);
   </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VB4TBMQX18"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VB4TBMQX18');
+  </script>
 </head>
+
 <body>
   <p>Redirecting...</p>
 </body>
+
 </html>
